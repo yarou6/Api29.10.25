@@ -1,0 +1,6 @@
+@Api29._10._25_HostAddress = http://localhost:5028
+
+GET {{Api29._10._25_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
