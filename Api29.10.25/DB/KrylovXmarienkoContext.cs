@@ -30,7 +30,7 @@ public partial class KrylovXmarienkoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("userid=student;password=student;database=KrylovXMarienko;server=192.168.200.13", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.3.39-mariadb"));
+        => optionsBuilder.UseMySql("userid=student;password=student;server=192.168.200.13;database=KrylovXMarienko", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.3.39-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -133,11 +133,11 @@ public partial class KrylovXmarienkoContext : DbContext
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.Email).HasMaxLength(100);
-            entity.Property(e => e.Fhone).HasColumnType("int(11)");
             entity.Property(e => e.FirstName).HasMaxLength(100);
             entity.Property(e => e.Info).HasMaxLength(100);
             entity.Property(e => e.LastName).HasMaxLength(100);
             entity.Property(e => e.Password).HasMaxLength(100);
+            entity.Property(e => e.Phone).HasMaxLength(100);
         });
 
         OnModelCreatingPartial(modelBuilder);

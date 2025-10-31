@@ -1,4 +1,6 @@
 
+using Api29._10._25.Behaviors;
+using Api29._10._25.CQRS.Command;
 using MyMediator.Extension;
 using MyMediator.Interfaces;
 using MyMediator.Types;
@@ -21,6 +23,14 @@ namespace Api29._10._25
             builder.Services.AddSingleton<IMediator, Mediator>();
 
             builder.Services.AddMediatorHandlers(Assembly.GetExecutingAssembly());
+
+
+            builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ClientInfoBehavior<,>));
+
+            builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UseBehavior<,>));
+
+            builder.Services.AddTransient<IValidator<RegistreUserCommand>, UserCommandVaildator>();
+            builder.Services.AddTransient<IValidator<NewOrderCommand>, OrderCommandValidator>();
 
             var app = builder.Build();
 

@@ -6,8 +6,15 @@
 
         public int UserId { get; set; }
 
-        public int ShippingAddressId { get; set; }
-
         public int PaymentMethodId { get; set; }
+        public int ProductId { get; set; }
+        public int Count { get; set; }
+        public string House {  get; set; }
+        public string Street {  get; set; }
+        public string Citi {  get; set; }
+        public int PostalCode {  get; set; }
+        public string PaymentMethod {  get; set; }
+
+       
     }
 }
